@@ -1,22 +1,37 @@
-/* layout */
+* {
+  box-sizing: border-box;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
-.vm-wraaper {
+.select-part {
   width: 360px;
 }
 
-
-/* style */
+.vm-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding-top: 67px;
+}
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background-color: #eae8fe;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 button {
@@ -25,8 +40,313 @@ button {
   background-color: #fff;
 }
 
-.get-btn {
-  background-color: rgba(99, 39, 254, 1);
-  color: rgba(255, 255, 255, 1);
+span,
+strong {
+  display: inline-block;
 }
 
+/* logo */
+.logo-img {
+  display: block;
+  width: 386px;
+  margin: 0 auto;
+}
+
+/* /logo */
+
+
+/* 콜라 6개 */
+.select-part {
+  width: 360px;
+  background-color: #fff;
+  padding: 27px;
+}
+
+.cola-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+  grid-auto-rows: minmax(100px, auto);
+
+}
+
+.type-name {
+  font-size: 9px;
+  color: #333;
+  /* pointer-events: none; */
+}
+
+.cola-type {
+  width: 94px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  padding: 11px 11px 9px 13px;
+}
+
+.cola-type.sold-out {
+  pointer-events: none;
+}
+
+.cola-type:focus,
+.cola-type:active {
+  outline: 3px solid #6327FE;
+}
+
+.cola-type.sold-out::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: url(images/품절.svg) no-repeat;
+  inset: 0;
+  background-size: 51px;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.price {
+  margin-top: 7px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #6327FE;
+  padding: 5px 16px 5px 15px;
+  border-radius: 50px;
+}
+/* /콜라 6개 */
+
+
+/* 잔액, 입금, 획득 */
+.balance {
+  display: inline;
+}
+
+.charging-wrapper {
+  display: grid;
+  grid-template-columns: 200px 94px;
+  grid-template-rows: 33px 33px 106px;
+  gap: 12px;
+  margin-top: 20px;
+  background-color: #fff;;
+}
+
+.balance-txt {
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #EAE8FE;
+  margin: 0 auto;
+  padding: 6px 10px 7px 10px;
+  border-radius: 5px;
+}
+
+.charging-wrapper .balance-txt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.change-btn {
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 500;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.input-price {
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #BDBDBD;
+  background-color: #fff;
+}
+
+.input-price::placeholder {
+  font-weight: 500;
+  font-size: 13px;
+  color: #BDBDBD;
+}
+
+.input-price[type="number"] {
+  padding: 6px;
+}
+
+.input-btn {
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.get-btn {
+  width: 94px;
+  height: 106px;
+  background-color: rgba(99, 39, 254, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 500;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+.selected-item {
+  outline: 1px solid #BDBDBD;
+  border-radius: 5px;
+  background-color: #EAE8FE;
+  overflow-y: scroll;
+}
+
+.selected-item.choose {
+  width: 200px;
+  height: 106px;
+  margin: 0 auto;
+}
+
+.selected-item img {
+  width: 18px;
+  display: block;
+}
+
+.selected-list {
+  display: flex;
+  align-items: center;
+  width: 170px;
+}
+
+.selected-item .selected-txt {
+  font-size: 9px;
+  font-weight: 500;
+  width: 73px;
+  margin-left: 10px;
+}
+
+.selected-item .selected-num {
+  font-size: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 4px 11px;
+  line-height: 20px;
+  border-radius: 5px;
+  margin-left: 21px;
+}
+
+.selected-btn {
+  width: 170px;
+  margin: 12px;
+  border-radius: 5px;
+}
+
+/* /잔액, 입금, 획득 */
+
+
+/* 소지금 */
+.possessed-wrapper {
+  width: 360px;
+  background-color: #EAE8FE;
+}
+.having-money {
+  padding: 9px 27px;
+  background-color: #fff;
+  width: 360px;
+  margin-bottom: 20px;
+}
+
+.having-txt {
+  width: 306px;
+  background-color: #EAE8FE;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.get-wrapper {
+  background-color: #fff;
+  padding: 20px 16px;
+}
+
+.get-cola-list {
+  width: 306px;
+  height: 364px;
+  background-color: #EAE8FE;
+  border: 1px solid #BDBDBD;
+  overflow-y: scroll;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.get-item {
+  width: 170px;
+  display: flex;
+  align-items: center;
+}
+
+.get-item img {
+  width: 18px;
+  display: block;
+}
+
+.possessed-btn {
+  width: 276px;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.get-title {
+  text-align: center;
+  margin-bottom: 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.get-cola-list .item-name {
+  font-size: 12px;
+  width: 73px;
+  margin-left: 10px;
+}
+
+.get-cola-list .item-number {
+  font-size: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 4px 11px;
+  line-height: 20px;
+  border-radius: 5px;
+  margin-left: 127px;
+
+}
+
+.total {
+  display: block;
+  font-weight: 500;
+  text-align: right;
+  font-size: 12px;
+  line-height: 17px;
+  margin: 6px 10px 32px 10px;
+}
+
+@media screen and (max-width:752px) {
+  body {
+    background-color: #fff;
+  }
+  .logo-img {
+    width: 166px;
+    height: 71px;
+  }
+  .vm-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .possessed-wrapper {
+    background-color: white;
+  }
+  .possessed-btn {
+    border: 1px solid #BDBDBD;
+  }
+  .selected-btn {
+    border: 1px solid #BDBDBD;
+  }
+}

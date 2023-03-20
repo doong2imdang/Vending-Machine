@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vending Machine</title>
-    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +26,7 @@
           </button>
         </li>
         <li>
-          <button class="cola-type" type="button" disabled>
+          <button class="cola-type sold-out" type="button" disabled>
             <img src="images/violetcola.svg" alt="violet cola">
             <strong class="type-name">Violet_Cola</strong>
             <span class="price">1000원</span>
@@ -65,48 +64,72 @@
       <!-- /콜라 6개 -->
 
       <!--잔액, 입금, 획득 -->
-      <section charging-wrapper>
+      <section class="charging-wrapper">
         <h2 class="a11y-hidden">잔액과 입금획득</h2>
 
         <!-- 1, 2 -->
-        <div class="balance">
           <!-- 1 -->
-          <div class="balance-txt">
-            잔액 : 
-            <span>
-              1,000원
-            </span>
-          </div>
+        <div class="balance">
+          <span class="balance-txt">
+            잔액 : <span>0원</span>
+          </span>
+        </div>
           <!-- 2 -->
           <button class="change-btn" type="button">거스름돈 반환</button>
-        </div>
 
         <!-- 3, 4 -->
-        <div class="input">
           <!-- 3 -->
           <input class="input-price" type="number" placeholder="입금액 입력">
           <!-- 4 -->
-          <button class="input-txt" type="button">입금</button>
-        </div>
+          <button class="input-btn" type="button">입금</button>
 
         <!-- 5, 6 -->
-        <div class="get">
           <!-- 5 -->
           <strong class="a11y-hidden">선택 음료</strong>
-          <ul class="selected-item">
-            <li>
-              <img class="selected-img" src="images/originalcola.svg" alt="">
-              <strong class="selected-txt">Original_Cola</strong>
-              <span class="selected-num">1</span>
-            </li>
-          </ul>
+            <ul class="selected-item choose">
+              <button class="selected-btn">
+                <li class="selected-list">
+                  <img class="selected-img" src="images/originalcola.svg" alt="">
+                  <span class="selected-txt">Original_Cola</span>
+                  <span class="selected-num">1</span>
+                </li>
+              </button>
+            </ul>
           <!-- 6 -->
           <button class="get-btn" type="button">획득</button>
+      </section>
+      <!-- /잔액, 입금, 획득 -->
+    </section>
+
+    <section class="possessed-wrapper">
+      <h2 class="a11y-hidden">소지금과 획득한음료</h2>
+
+      <section class="possessed-money">
+        <h2 class="a11y-hidden">소지금</h2>
+
+        <div class="having-money">
+          <span class="having-txt">
+            소지금 : <span>25,000원</span>
+          </span>
         </div>
       </section>
-      <!-- 잔액, 입금, 획득 -->
 
+      <section class="get-wrapper">
+        <h2 class="get-title">획득한 음료</h2>
+
+        <ul class="get-cola-list">
+          <button class="possessed-btn">
+            <li class="get-item">
+              <img src="images/originalcola.svg" alt="">
+              <span class="item-name">Original_cola</span>
+              <span class="item-number">1</span>
+            </li>
+          </button>
+        </ul>
+        <span class="total">총금액 : 9,000 원</span>
+      </section>
     </section>
+
   </section>
 
 </body>
